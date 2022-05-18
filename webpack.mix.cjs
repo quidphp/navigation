@@ -1,8 +1,8 @@
 const mix = require('laravel-mix');
-mix.js('index.js', 'dist/navigation.js');
-mix.js('test/navigation.js', 'dist/navigation-test.js');
-mix.babel('dist/navigation.js', 'dist/navigation-es5.js');
-mix.babel('dist/navigation-test.js', 'dist/navigation-test-es5.js');
+mix.js('index.js', 'dist/navigation-es.js');
+mix.js('test/navigation.js', 'dist/navigation-test-es.js');
+mix.babel('dist/navigation-es.js', 'dist/navigation.js');
+mix.babel('dist/navigation-test-es.js', 'dist/navigation-test.js');
 mix.webpackConfig({
     output: {
         library: ["Quid"],
