@@ -6,7 +6,9 @@
  
 // doc
 // root component for a document node
-Component.Doc = function(option)
+
+// export
+export default function(option)
 {
     // document node
     Vari.check(this,document);

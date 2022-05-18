@@ -6,7 +6,9 @@
  
 // windowUnload
 // component to manage the unload notification with the window object
-Component.WindowUnload = function(type,timeout)
+
+// export
+export default function(type,timeout)
 {
     // une node
     Vari.check(this,window);

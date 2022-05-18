@@ -6,7 +6,9 @@
  
 // history
 // component managing site navigation with the HistoryAPI
-Component.History = function(option)
+
+// export
+export default function(option)
 {
     // document node
     Vari.check(this,document);

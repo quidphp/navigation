@@ -10,7 +10,7 @@
 // import
 import * as Quid from '../index.js';
 import { Test } from 'quidphp-browser/test/browser.js';
-const { Shortcut } = Quid;
+const { Env, Shortcut } = Quid;
 const { d, assert, logError, setData } = Shortcut;
 
 // browser
