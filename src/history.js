@@ -7,6 +7,10 @@
 // history
 // component managing site navigation with the HistoryAPI
 
+// import
+import { Component, Doc, Dom, Ele, Evt, Func, HistoryState, Json, Obj, Pojo, Shortcut, Str, Uri, Vari, Win, Xhr } from '../index.js';
+const { ael, aelDelegate, aelOnce, getData, setData, setHdlrs, toggleAttr, trigEvt, trigHdlr } = Shortcut;
+
 // export
 export default function(option)
 {

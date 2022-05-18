@@ -7113,6 +7113,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../index.js */ "./index.js");
 /*
  * This file is part of the QuidPHP package <https://quidphp.com>
  * Author: Pierre-Philippe Emond <emondpph@gmail.com>
@@ -7120,19 +7121,34 @@ __webpack_require__.r(__webpack_exports__);
  */
 // doc
 // root component for a document node
-// export
+// import
+
+var ael = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.ael,
+    aelOnce = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.aelOnce,
+    _getAttr = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.getAttr,
+    _getData = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.getData,
+    getHtml = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.getHtml,
+    qs = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.qs,
+    qsa = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.qsa,
+    _setAttr = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.setAttr,
+    setData = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.setData,
+    setHtml = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.setHtml,
+    setHdlrs = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.setHdlrs,
+    trigEvt = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.trigEvt,
+    trigHdlr = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.trigHdlr; // export
+
 /* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(option) {
   // document node
-  Vari.check(this, document); // option
+  _index_js__WEBPACK_IMPORTED_MODULE_0__.Vari.check(this, document); // option
 
-  var $option = Pojo.replace({
+  var $option = _index_js__WEBPACK_IMPORTED_MODULE_0__.Pojo.replace({
     mountTimeout: 0,
     routeWrap: "> .route-wrap",
     scrollTop: true,
     contentType: 'html'
   }, option); // components
 
-  Component.History.call(this, $option); // handler
+  _index_js__WEBPACK_IMPORTED_MODULE_0__.Component.History.call(this, $option); // handler
 
   setHdlrs(this, 'doc:', {
     // retourne la node html
@@ -7160,41 +7176,22 @@ __webpack_require__.r(__webpack_exports__);
     },
     // getAttr
     // permet d'obtenir un attribut de la balise html
-    getAttr: function (_getAttr) {
-      function getAttr(_x, _x2) {
-        return _getAttr.apply(this, arguments);
-      }
-
-      getAttr.toString = function () {
-        return _getAttr.toString();
-      };
-
-      return getAttr;
-    }(function (key, cast) {
+    getAttr: function getAttr(key, cast) {
       var html = trigHdlr(this, 'doc:getHtml');
-      return getAttr(html, key, cast);
-    }),
+      return _getAttr(html, key, cast);
+    },
     // setAttr
     // permet de changer un attribut de la balise html
-    setAttr: function (_setAttr) {
-      function setAttr(_x3, _x4) {
-        return _setAttr.apply(this, arguments);
-      }
-
-      setAttr.toString = function () {
-        return _setAttr.toString();
-      };
-
-      return setAttr;
-    }(function (key, value) {
+    setAttr: function setAttr(key, value) {
       var html = trigHdlr(this, 'doc:getHtml');
-      setAttr(html, key, value);
-    }),
+
+      _setAttr(html, key, value);
+    },
     // removeAttr
     // permet de retirer un attribut de la balise html
     removeAttr: function removeAttr(key) {
       var html = trigHdlr(this, 'doc:getHtml');
-      Ele.removeAttr(html, key);
+      _index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.removeAttr(html, key);
     },
     // setError
     // permettre de mettre un type d'erreur dans l'attribut
@@ -7209,7 +7206,7 @@ __webpack_require__.r(__webpack_exports__);
     // setTitle
     // permet de changer le titre de la page
     setTitle: function setTitle(value) {
-      value = Str.is(value) ? value : '';
+      value = _index_js__WEBPACK_IMPORTED_MODULE_0__.Str.is(value) ? value : '';
       var node = qs(this, 'head title');
       document.title = value; // node
 
@@ -7217,19 +7214,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     // getData
     // retourne le dernier objet de data
-    getData: function (_getData) {
-      function getData() {
-        return _getData.apply(this, arguments);
-      }
-
-      getData.toString = function () {
-        return _getData.toString();
-      };
-
-      return getData;
-    }(function () {
-      return getData(this, 'data-doc');
-    }),
+    getData: function getData() {
+      return _getData(this, 'data-doc');
+    },
     // met le statut de la balise html à loading
     setStatusLoading: function setStatusLoading() {
       trigHdlr(this, 'doc:setAttr', 'data-status', 'loading');
@@ -7245,7 +7232,7 @@ __webpack_require__.r(__webpack_exports__);
     // lance les évènements pour monter le document dans le bon order
     mount: function mount(initial, isError) {
       trigEvt(this, 'doc:mountImmediate', initial, isError);
-      Func.timeout($option.mountTimeout, function () {
+      _index_js__WEBPACK_IMPORTED_MODULE_0__.Func.timeout($option.mountTimeout, function () {
         docMount.call(this, initial, isError);
         trigHdlr(this, 'doc:setStatusReady');
       }, this);
@@ -7265,7 +7252,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     // prépare le document à paritr d'un objet doc
     makeMetaFromDoc: function makeMetaFromDoc(doc) {
-      Pojo.typecheck(doc);
+      _index_js__WEBPACK_IMPORTED_MODULE_0__.Pojo.typecheck(doc);
       docMetaMake.call(this, doc.htmlAttr, doc.title, doc.meta, doc.bodyAttr, doc.routeWrapAttr);
     },
     // crée le document à partir d'un objet doc, passé dans dom.parse
@@ -7295,14 +7282,14 @@ __webpack_require__.r(__webpack_exports__);
   }); // manageScrollTop
 
   var manageScrollTop = function manageScrollTop() {
-    if ($option.scrollTop === true) Win.setScroll(0);
+    if ($option.scrollTop === true) _index_js__WEBPACK_IMPORTED_MODULE_0__.Win.setScroll(0);
     if ($option.scrollTop == null) $option.scrollTop = true;
   }; // docMakeMount
 
 
   var docMakeMount = function docMakeMount(type, handler, parsedData, isError) {
-    Str.typecheck(handler, true);
-    Pojo.typecheck(parsedData);
+    _index_js__WEBPACK_IMPORTED_MODULE_0__.Str.typecheck(handler, true);
+    _index_js__WEBPACK_IMPORTED_MODULE_0__.Pojo.typecheck(parsedData);
 
     if ($option.contentType === true || $option.contentType === type) {
       trigHdlr(this, 'doc:unmount');
@@ -7320,7 +7307,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
   var docMakeHtml = function docMakeHtml(doc) {
-    Pojo.typecheck(doc); // routeWrapAttr
+    _index_js__WEBPACK_IMPORTED_MODULE_0__.Pojo.typecheck(doc); // routeWrapAttr
 
     doc.routeWrapAttr = getRouteWrapAttr.call(this, doc.body); // metaMake
 
@@ -7331,7 +7318,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
   var docMakeJson = function docMakeJson(json) {
-    Pojo.typecheck(json); // metaMake
+    _index_js__WEBPACK_IMPORTED_MODULE_0__.Pojo.typecheck(json); // metaMake
 
     trigHdlr(this, 'doc:makeMetaFromDoc', json.doc); // emit
 
@@ -7346,26 +7333,26 @@ __webpack_require__.r(__webpack_exports__);
     var routeWrap = trigHdlr(this, 'doc:getRouteWrap'); // htmlAttr
     // les attributs de html sont remplacés (les attributs existants ne sont pas effacés)
 
-    if (Pojo.isNotEmpty(htmlAttr)) Ele.setsAttr(html, htmlAttr); // title
+    if (_index_js__WEBPACK_IMPORTED_MODULE_0__.Pojo.isNotEmpty(htmlAttr)) _index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.setsAttr(html, htmlAttr); // title
 
-    if (!Str.is(title) || !title) title = '?';
+    if (!_index_js__WEBPACK_IMPORTED_MODULE_0__.Str.is(title) || !title) title = '?';
     trigHdlr(this, 'doc:setTitle', title); // meta
 
     if (meta != null) {
       var oldMeta = qsa(head, 'meta');
-      Ele.remove(oldMeta);
-      if (Str.isNotEmpty(meta)) meta = Dom.parse(meta);
-      if (Arr.isNotEmpty(meta)) Ele.prepend(head, meta);
+      _index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.remove(oldMeta);
+      if (_index_js__WEBPACK_IMPORTED_MODULE_0__.Str.isNotEmpty(meta)) meta = _index_js__WEBPACK_IMPORTED_MODULE_0__.Dom.parse(meta);
+      if (_index_js__WEBPACK_IMPORTED_MODULE_0__.Arr.isNotEmpty(meta)) _index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.prepend(head, meta);
     } // body
     // les attributs de body sont effacés et remplacés
 
 
-    Ele.emptyAttr(body);
-    if (Pojo.isNotEmpty(bodyAttr)) Ele.setsAttr(body, bodyAttr); // routeWrap
+    _index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.emptyAttr(body);
+    if (_index_js__WEBPACK_IMPORTED_MODULE_0__.Pojo.isNotEmpty(bodyAttr)) _index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.setsAttr(body, bodyAttr); // routeWrap
 
     if (routeWrapAttr != null) {
-      Ele.emptyAttr(routeWrap);
-      Ele.setsAttr(routeWrap, routeWrapAttr);
+      _index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.emptyAttr(routeWrap);
+      _index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.setsAttr(routeWrap, routeWrapAttr);
     }
   }; // getRouteWrapTarget
 
@@ -7376,7 +7363,7 @@ __webpack_require__.r(__webpack_exports__);
     if (contentTarget != null) {
       var routeWrap = trigHdlr(this, 'doc:getRouteWrap');
 
-      if ($option.routeWrap && routeWrap != null && !Ele.match(routeWrap, "body")) {
+      if ($option.routeWrap && routeWrap != null && !_index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.match(routeWrap, "body")) {
         var routeWrapTarget = qs(contentTarget, $option.routeWrap);
         if (routeWrapTarget != null) r = routeWrapTarget;
       }
@@ -7391,7 +7378,7 @@ __webpack_require__.r(__webpack_exports__);
   var getRouteWrapAttr = function getRouteWrapAttr(contentTarget) {
     var r = null;
     contentTarget = getRouteWrapTarget.call(this, contentTarget, true);
-    if (contentTarget != null) r = Ele.attr(contentTarget);
+    if (contentTarget != null) r = _index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.attr(contentTarget);
     return r;
   }; // docRouteWrapMake
 
@@ -7417,9 +7404,9 @@ __webpack_require__.r(__webpack_exports__);
       if (isError !== true) {
         var uri = trigHdlr(this, 'doc:getAttr', "data-uri");
         var group = trigHdlr(this, 'doc:getAttr', "data-group");
-        if (Str.isNotEmpty(group)) trigEvt(this, 'group:' + group, routeWrap, uri);
+        if (_index_js__WEBPACK_IMPORTED_MODULE_0__.Str.isNotEmpty(group)) trigEvt(this, 'group:' + group, routeWrap, uri);
         var route = trigHdlr(this, 'doc:getAttr', "data-route");
-        if (Str.isNotEmpty(route)) trigEvt(this, 'route:' + route, routeWrap, uri);
+        if (_index_js__WEBPACK_IMPORTED_MODULE_0__.Str.isNotEmpty(route)) trigEvt(this, 'route:' + route, routeWrap, uri);
       }
 
       trigEvt(this, 'doc:mountedPage', routeWrap, isError);
@@ -7436,9 +7423,9 @@ __webpack_require__.r(__webpack_exports__);
       trigEvt(this, 'doc:unmountPage', routeWrap);
       var uri = trigHdlr(this, 'doc:getAttr', "data-uri");
       var group = trigHdlr(this, 'doc:getAttr', "data-group");
-      if (Str.isNotEmpty(group)) trigEvt(this, 'group:' + group + ':unmount', routeWrap, uri);
+      if (_index_js__WEBPACK_IMPORTED_MODULE_0__.Str.isNotEmpty(group)) trigEvt(this, 'group:' + group + ':unmount', routeWrap, uri);
       var route = trigHdlr(this, 'doc:getAttr', "data-route");
-      if (Str.isNotEmpty(route)) trigEvt(this, 'route:' + route + ':unmount', routeWrap, uri);
+      if (_index_js__WEBPACK_IMPORTED_MODULE_0__.Str.isNotEmpty(route)) trigEvt(this, 'route:' + route + ':unmount', routeWrap, uri);
       trigEvt(this, 'doc:unmounted', routeWrap);
     }
   };
@@ -7459,6 +7446,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../index.js */ "./index.js");
 /*
  * This file is part of the QuidPHP package <https://quidphp.com>
  * Author: Pierre-Philippe Emond <emondpph@gmail.com>
@@ -7466,12 +7454,23 @@ __webpack_require__.r(__webpack_exports__);
  */
 // history
 // component managing site navigation with the HistoryAPI
-// export
+// import
+
+var ael = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.ael,
+    aelDelegate = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.aelDelegate,
+    aelOnce = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.aelOnce,
+    getData = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.getData,
+    setData = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.setData,
+    setHdlrs = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.setHdlrs,
+    toggleAttr = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.toggleAttr,
+    trigEvt = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.trigEvt,
+    trigHdlr = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.trigHdlr; // export
+
 /* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(option) {
   // document node
-  Vari.check(this, document); // option
+  _index_js__WEBPACK_IMPORTED_MODULE_0__.Vari.check(this, document); // option
 
-  var $option = Pojo.replace({
+  var $option = _index_js__WEBPACK_IMPORTED_MODULE_0__.Pojo.replace({
     anchor: "a:not([target='_blank']):not([data-navigation='0']):not([data-modal]):not([href^='mailto:'])",
     form: "form:not([data-navigation='0'])",
     responseUrl: 'QUID-URI',
@@ -7480,10 +7479,10 @@ __webpack_require__.r(__webpack_exports__);
     headerNavigation: 'Quid-Navigation'
   }, option); // component
 
-  Component.WindowUnload.call(window); // variable
+  _index_js__WEBPACK_IMPORTED_MODULE_0__.Component.WindowUnload.call(window); // variable
 
-  var $history = Win.hasHistoryApi() ? window.history : null;
-  var $initial = HistoryState.make(location.href, this.title);
+  var $history = _index_js__WEBPACK_IMPORTED_MODULE_0__.Win.hasHistoryApi() ? window.history : null;
+  var $initial = _index_js__WEBPACK_IMPORTED_MODULE_0__.HistoryState.make(location.href, this.title);
   var $previous = $initial; // handler
 
   setHdlrs(this, 'history:', {
@@ -7517,7 +7516,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     // retourne l'état courant
     getCurrentState: function getCurrentState() {
-      return HistoryState.make(location.href, this.title);
+      return _index_js__WEBPACK_IMPORTED_MODULE_0__.HistoryState.make(location.href, this.title);
     },
     // annule et détruit l'objet ajax si existant
     cancelAjax: function cancelAjax() {
@@ -7525,11 +7524,11 @@ __webpack_require__.r(__webpack_exports__);
 
       if (trigHdlr(this, 'history:isLoading') === true) {
         var ajax = getData(this, 'doc-ajax');
-        ajax.onreadystatechange = Func.noop();
+        ajax.onreadystatechange = _index_js__WEBPACK_IMPORTED_MODULE_0__.Func.noop();
         ajax.abort();
       }
 
-      Doc.removeData(this, 'doc-ajax');
+      _index_js__WEBPACK_IMPORTED_MODULE_0__.Doc.removeData(this, 'doc-ajax');
       return r;
     },
     // replace l'état courant par une nouvelle uri
@@ -7563,15 +7562,15 @@ __webpack_require__.r(__webpack_exports__);
     // permet de faire un replaceState avec un nouveau hash
     // retourne null ou le nouveau state
     replaceHash: function replaceHash(value, title) {
-      Str.typecheck(value);
-      value = Uri.makeHash(value, true);
+      _index_js__WEBPACK_IMPORTED_MODULE_0__.Str.typecheck(value);
+      value = _index_js__WEBPACK_IMPORTED_MODULE_0__.Uri.makeHash(value, true);
       return trigHdlr(this, 'history:replaceState', value, title);
     },
     // permet de faire un pushState avec un nouveau hash
     // retourne null ou le nouveau state, si null va faire le changement via window.location
     pushHash: function pushHash(value, title) {
-      Str.typecheck(value);
-      value = Uri.makeHash(value, true);
+      _index_js__WEBPACK_IMPORTED_MODULE_0__.Str.typecheck(value);
+      value = _index_js__WEBPACK_IMPORTED_MODULE_0__.Uri.makeHash(value, true);
       return trigHdlr(this, 'history:pushState', value, title);
     },
     // gère une nouvelle entrée à l'historique à partir d'un event
@@ -7604,12 +7603,12 @@ __webpack_require__.r(__webpack_exports__);
   var prepareState = function prepareState(uriState, title) {
     var r = null;
 
-    if (Pojo.is(uriState)) {
+    if (_index_js__WEBPACK_IMPORTED_MODULE_0__.Pojo.is(uriState)) {
       title = uriState.title || title;
       uriState = uriState.url;
     }
 
-    if (Str.is(uriState)) r = HistoryState.make(uriState, title, true);
+    if (_index_js__WEBPACK_IMPORTED_MODULE_0__.Str.is(uriState)) r = _index_js__WEBPACK_IMPORTED_MODULE_0__.HistoryState.make(uriState, title, true);
     return r;
   }; // bindDocument
   // applique les bindings permanents sur le document, via delegate
@@ -7637,12 +7636,12 @@ __webpack_require__.r(__webpack_exports__);
   var bindWindow = function bindWindow() {
     ael(window, 'popstate', function (event) {
       var state = event.state || trigHdlr(document, 'history:getCurrentState');
-      var isValid = HistoryState.isChangeValid(state, $previous, true);
+      var isValid = _index_js__WEBPACK_IMPORTED_MODULE_0__.HistoryState.isChangeValid(state, $previous, true);
 
       if (isValid === true) {
         if (trigHdlr(this, 'windowUnload:isValid') === true) makeAjax.call(document, state, event);else trigHdlr(this, 'history:pushState', $previous);
       } // hash change
-      else if (Uri.isSamePathQuery(state.url, $previous.url) && (Uri.hasFragment(state.url) || Uri.hasFragment($previous.url))) {
+      else if (_index_js__WEBPACK_IMPORTED_MODULE_0__.Uri.isSamePathQuery(state.url, $previous.url) && (_index_js__WEBPACK_IMPORTED_MODULE_0__.Uri.hasFragment(state.url) || _index_js__WEBPACK_IMPORTED_MODULE_0__.Uri.hasFragment($previous.url))) {
         $previous = state;
         trigEvt(window, 'hashChange:history', true);
       }
@@ -7656,7 +7655,7 @@ __webpack_require__.r(__webpack_exports__);
 
     if (srcEvent instanceof Event) {
       var type = srcEvent.type;
-      var node = Evt.getTriggerTarget(srcEvent);
+      var node = _index_js__WEBPACK_IMPORTED_MODULE_0__.Evt.getTriggerTarget(srcEvent);
 
       if (node != null) {
         if (type === 'click') r = !(srcEvent.which > 1 || srcEvent.metaKey || srcEvent.ctrlKey || srcEvent.shiftKey || srcEvent.altKey);else r = true;
@@ -7670,10 +7669,10 @@ __webpack_require__.r(__webpack_exports__);
 
   var isValidNode = function isValidNode(node, type) {
     var r = false;
-    var href = Ele.getUri(node);
+    var href = _index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.getUri(node);
 
-    if (Str.isNotEmpty(href)) {
-      if (type === 'submit') r = Ele.match(node, $option.form);else r = Ele.match(node, $option.anchor);
+    if (_index_js__WEBPACK_IMPORTED_MODULE_0__.Str.isNotEmpty(href)) {
+      if (type === 'submit') r = _index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.match(node, $option.form);else r = _index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.match(node, $option.anchor);
     }
 
     return r;
@@ -7685,7 +7684,7 @@ __webpack_require__.r(__webpack_exports__);
     var r = false;
 
     if (isValidEvent.call(this, srcEvent)) {
-      var node = Evt.getTriggerTarget(srcEvent);
+      var node = _index_js__WEBPACK_IMPORTED_MODULE_0__.Evt.getTriggerTarget(srcEvent);
       r = historyNode.call(this, node, srcEvent);
     }
 
@@ -7698,15 +7697,15 @@ __webpack_require__.r(__webpack_exports__);
   var historyNode = function historyNode(node, eventOrType) {
     var r = false;
     var nodeOrEvent = node;
-    var type = Ele.isTag(node, 'form') ? 'submit' : 'click';
+    var type = _index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.isTag(node, 'form') ? 'submit' : 'click';
 
     if (eventOrType instanceof Event) {
       nodeOrEvent = eventOrType;
       type = event.type;
-    } else if (Str.isNotEmpty(eventOrType)) type = eventOrType;
+    } else if (_index_js__WEBPACK_IMPORTED_MODULE_0__.Str.isNotEmpty(eventOrType)) type = eventOrType;
 
     if (isValidNode.call(this, node, type)) {
-      var href = Ele.getUri(node);
+      var href = _index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.getUri(node);
       r = historyHref.call(this, href, nodeOrEvent);
     }
 
@@ -7721,12 +7720,12 @@ __webpack_require__.r(__webpack_exports__);
     var srcEvent = nodeOrEvent instanceof Event ? nodeOrEvent : null;
 
     if (trigHdlr(this, 'history:isLoading') === false) {
-      if (Uri.isExternal(href)) trigHdlr(document, 'history:redirect', href);else if (Uri.isInternal(href)) {
+      if (_index_js__WEBPACK_IMPORTED_MODULE_0__.Uri.isExternal(href)) trigHdlr(document, 'history:redirect', href);else if (_index_js__WEBPACK_IMPORTED_MODULE_0__.Uri.isInternal(href)) {
         var htmlNavigation = trigHdlr(document, 'doc:getAttr', 'data-navigation', 'int');
         var current = trigHdlr(this, 'history:getCurrentState');
-        var state = HistoryState.make(href);
-        var isValid = HistoryState.isChangeValid(state, current);
-        var isHashChange = Uri.isHashChange(state.url, current.url);
+        var state = _index_js__WEBPACK_IMPORTED_MODULE_0__.HistoryState.make(href);
+        var isValid = _index_js__WEBPACK_IMPORTED_MODULE_0__.HistoryState.isChangeValid(state, current);
+        var isHashChange = _index_js__WEBPACK_IMPORTED_MODULE_0__.Uri.isHashChange(state.url, current.url);
 
         if (isValid === true) {
           if (trigHdlr(window, 'windowUnload:isValid') === true) {
@@ -7746,10 +7745,10 @@ __webpack_require__.r(__webpack_exports__);
             if (targetsTriggered != null) toggleAttr(targetsTriggered, $option.attrTriggered, true);
           }
 
-          if (srcEvent != null) Evt.preventStop(srcEvent);
+          if (srcEvent != null) _index_js__WEBPACK_IMPORTED_MODULE_0__.Evt.preventStop(srcEvent);
         }
       }
-    } else if (srcEvent != null) Evt.preventStop(srcEvent);
+    } else if (srcEvent != null) _index_js__WEBPACK_IMPORTED_MODULE_0__.Evt.preventStop(srcEvent);
 
     return r;
   }; // getTargetsTriggered
@@ -7760,8 +7759,8 @@ __webpack_require__.r(__webpack_exports__);
     var r = null;
 
     if (nodeOrEvent != null) {
-      var node = Ele.is(nodeOrEvent) ? nodeOrEvent : Evt.getTriggerTarget(nodeOrEvent);
-      var tag = Ele.tag(node);
+      var node = _index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.is(nodeOrEvent) ? nodeOrEvent : _index_js__WEBPACK_IMPORTED_MODULE_0__.Evt.getTriggerTarget(nodeOrEvent);
+      var tag = _index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.tag(node);
 
       if (tag != null) {
         if (tag === 'form') r = trigHdlr(node, 'form:getClickedSubmits');else r = [node];
@@ -7779,11 +7778,11 @@ __webpack_require__.r(__webpack_exports__);
 
     if (nodeOrEvent != null) {
       if (nodeOrEvent instanceof Event && nodeOrEvent.type === 'popstate') r = 'popstate';else {
-        var node = Ele.is(nodeOrEvent) ? nodeOrEvent : Evt.getTriggerTarget(nodeOrEvent);
-        var tag = Ele.tag(node);
+        var node = _index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.is(nodeOrEvent) ? nodeOrEvent : _index_js__WEBPACK_IMPORTED_MODULE_0__.Evt.getTriggerTarget(nodeOrEvent);
+        var tag = _index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.tag(node);
 
         if (tag === 'form') {
-          Xhr.configFromNode(node, config);
+          _index_js__WEBPACK_IMPORTED_MODULE_0__.Xhr.configFromNode(node, config);
           if (trigHdlr(node, 'form:hasFiles')) config.timeout = 0;
           r = 'form';
         }
@@ -7798,7 +7797,7 @@ __webpack_require__.r(__webpack_exports__);
   var makeAjax = function makeAjax(state, nodeOrEvent) {
     var r = null;
 
-    if (HistoryState.is(state)) {
+    if (_index_js__WEBPACK_IMPORTED_MODULE_0__.HistoryState.is(state)) {
       trigEvt(this, 'doc:initAjax');
       var config = {
         url: state.url,
@@ -7817,7 +7816,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       };
       var type = makeHistoryType(config, nodeOrEvent);
-      r = Xhr.trigger(config);
+      r = _index_js__WEBPACK_IMPORTED_MODULE_0__.Xhr.trigger(config);
       trigHdlr(this, 'history:cancelAjax');
       if (r != null) setData(this, 'doc-ajax', r);
     }
@@ -7834,28 +7833,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
   var afterAjax = function afterAjax(type, state, xhr, isError) {
-    if (Str.isNotEmpty(type) && HistoryState.is(state) && Obj.is(xhr)) {
+    if (_index_js__WEBPACK_IMPORTED_MODULE_0__.Str.isNotEmpty(type) && _index_js__WEBPACK_IMPORTED_MODULE_0__.HistoryState.is(state) && _index_js__WEBPACK_IMPORTED_MODULE_0__.Obj.is(xhr)) {
       var data = xhr.responseText || '';
       var contentType = xhr.getResponseHeader('content-type');
-      var isHtml = Str.isStart('text/html', contentType);
-      var isJson = Str.isStart('text/json', contentType);
+      var isHtml = _index_js__WEBPACK_IMPORTED_MODULE_0__.Str.isStart('text/html', contentType);
+      var isJson = _index_js__WEBPACK_IMPORTED_MODULE_0__.Str.isStart('text/json', contentType);
       var parsedData = {};
-      if (isHtml === true) parsedData = Dom.doc(data);else if (isJson === true) parsedData = Json.decode(data);
+      if (isHtml === true) parsedData = _index_js__WEBPACK_IMPORTED_MODULE_0__.Dom.doc(data);else if (isJson === true) parsedData = _index_js__WEBPACK_IMPORTED_MODULE_0__.Json.decode(data);
       var title = parsedData.title || '?';
       var current = trigHdlr(this, 'history:getCurrentState');
-      var currentUri = Str.isNotEmpty($option.responseUrl) ? xhr.getResponseHeader($option.responseUrl) : null;
+      var currentUri = _index_js__WEBPACK_IMPORTED_MODULE_0__.Str.isNotEmpty($option.responseUrl) ? xhr.getResponseHeader($option.responseUrl) : null;
 
       if (type === 'push' || type === 'form') {
-        state = HistoryState.make(state.url, title);
+        state = _index_js__WEBPACK_IMPORTED_MODULE_0__.HistoryState.make(state.url, title);
 
         if (state.url !== current.url) {
-          if (type === 'push' || !Uri.isSamePathQuery(current.url, currentUri)) trigHdlr(this, 'history:pushState', state);
+          if (type === 'push' || !_index_js__WEBPACK_IMPORTED_MODULE_0__.Uri.isSamePathQuery(current.url, currentUri)) trigHdlr(this, 'history:pushState', state);
         }
       }
 
-      if (Str.is(currentUri) && state.url !== currentUri) {
-        if (!Uri.isSamePathQuery(state.url, currentUri)) {
-          var replaceUri = Uri.relative(currentUri, true);
+      if (_index_js__WEBPACK_IMPORTED_MODULE_0__.Str.is(currentUri) && state.url !== currentUri) {
+        if (!_index_js__WEBPACK_IMPORTED_MODULE_0__.Uri.isSamePathQuery(state.url, currentUri)) {
+          var replaceUri = _index_js__WEBPACK_IMPORTED_MODULE_0__.Uri.relative(currentUri, true);
           state = trigHdlr(this, 'history:replaceState', replaceUri, state.title);
         }
       }
@@ -7867,13 +7866,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
   var afterAjaxHtml = function afterAjaxHtml(doc, isError) {
-    Pojo.typecheck(doc);
+    _index_js__WEBPACK_IMPORTED_MODULE_0__.Pojo.typecheck(doc);
     trigHdlr(this, 'doc:makeHtmlMount', doc, isError);
   }; // afterAjaxJson
 
 
   var afterAjaxJson = function afterAjaxJson(json, isError) {
-    Pojo.typecheck(json);
+    _index_js__WEBPACK_IMPORTED_MODULE_0__.Pojo.typecheck(json);
     trigHdlr(this, 'doc:makeJsonMount', json, isError);
   };
 
@@ -7893,6 +7892,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../index.js */ "./index.js");
 /*
  * This file is part of the QuidPHP package <https://quidphp.com>
  * Author: Pierre-Philippe Emond <emondpph@gmail.com>
@@ -7900,41 +7900,46 @@ __webpack_require__.r(__webpack_exports__);
  */
 // windowUnload
 // component to manage the unload notification with the window object
-// export
+// import
+
+var ael = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.ael,
+    setHdlrs = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.setHdlrs,
+    trigHdlr = _index_js__WEBPACK_IMPORTED_MODULE_0__.Shortcut.trigHdlr; // export
+
 /* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(type, timeout) {
   // une node
-  Vari.check(this, window); // handler
+  _index_js__WEBPACK_IMPORTED_MODULE_0__.Vari.check(this, window); // handler
 
   setHdlrs(this, 'windowUnload:', {
     isValid: function isValid() {
       var r = false;
       var unload = trigHdlr(this, 'windowUnload:getText');
-      if (!Str.isNotEmpty(unload) || confirm(unload)) r = true;
+      if (!_index_js__WEBPACK_IMPORTED_MODULE_0__.Str.isNotEmpty(unload) || confirm(unload)) r = true;
       return r;
     },
     addNode: function addNode(node) {
-      node = Ele.toArray(node, false);
+      node = _index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.toArray(node, false);
       var nodes = trigHdlr(this, 'windowUnload:getNodes');
-      Arr.accumulate(nodes, node, function (ele) {
+      _index_js__WEBPACK_IMPORTED_MODULE_0__.Arr.accumulate(nodes, node, function (ele) {
         return ele;
       });
     },
     removeNode: function removeNode(node) {
-      node = Ele.toArray(node, false);
+      node = _index_js__WEBPACK_IMPORTED_MODULE_0__.Ele.toArray(node, false);
       var nodes = trigHdlr(this, 'windowUnload:getNodes');
-      Arr.each(node, function (ele) {
-        Arr.spliceValue(ele, nodes);
+      _index_js__WEBPACK_IMPORTED_MODULE_0__.Arr.each(node, function (ele) {
+        _index_js__WEBPACK_IMPORTED_MODULE_0__.Arr.spliceValue(ele, nodes);
       });
     },
     getNodes: function getNodes(node) {
-      return Win.getOrSetData(this, 'window-unload-nodes', []);
+      return _index_js__WEBPACK_IMPORTED_MODULE_0__.Win.getOrSetData(this, 'window-unload-nodes', []);
     },
     getText: function getText() {
       var r = null;
       var nodes = trigHdlr(this, 'windowUnload:getNodes');
-      Arr.each(nodes, function (ele) {
+      _index_js__WEBPACK_IMPORTED_MODULE_0__.Arr.each(nodes, function (ele) {
         r = trigHdlr(ele, 'windowUnload:getText');
-        if (Str.isNotEmpty(r)) return false;
+        if (_index_js__WEBPACK_IMPORTED_MODULE_0__.Str.isNotEmpty(r)) return false;
       });
       return r;
     }
@@ -7945,7 +7950,7 @@ __webpack_require__.r(__webpack_exports__);
     event = event || window.event;
     var text = trigHdlr(this, 'windowUnload:getText');
 
-    if (Str.isNotEmpty(text)) {
+    if (_index_js__WEBPACK_IMPORTED_MODULE_0__.Str.isNotEmpty(text)) {
       r = text;
       event.returnValue = r;
     }

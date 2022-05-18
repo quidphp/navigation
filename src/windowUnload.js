@@ -7,6 +7,10 @@
 // windowUnload
 // component to manage the unload notification with the window object
 
+// import
+import { Arr, Ele, Shortcut, Str, Vari, Win } from '../index.js';
+const { ael, setHdlrs, trigHdlr } = Shortcut;
+
 // export
 export default function(type,timeout)
 {

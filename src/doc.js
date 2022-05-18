@@ -7,6 +7,10 @@
 // doc
 // root component for a document node
 
+// import
+import { Arr, Component, Doc, Dom, Ele, Func, Pojo, Shortcut, Str, Vari, Win } from '../index.js';
+const { ael, aelOnce, getAttr, getData, getHtml, qs, qsa, setAttr, setData, setHtml, setHdlrs, trigEvt, trigHdlr } = Shortcut;
+
 // export
 export default function(option)
 {
