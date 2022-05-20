@@ -1,8 +1,10 @@
 const mix = require('laravel-mix');
-mix.js('index.js', 'dist/navigation-es.js');
-mix.js('test/navigation.js', 'dist/navigation-test-es.js');
-mix.babel('dist/navigation-es.js', 'dist/navigation.js');
-mix.babel('dist/navigation-test-es.js', 'dist/navigation-test.js');
+require('laravel-mix-polyfill');
+
+mix.js('index.js', 'dist/navigation.js');
+mix.js('test/navigation.js', 'dist/navigation-test.js');
+mix.polyfill({ enabled: true, useBuiltIns: false });
+
 mix.webpackConfig({
     output: {
         library: ["Quid"],
