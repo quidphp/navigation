@@ -6,7 +6,7 @@
 
 // document
 // stylesheet for the document component, includes many style reset
-@mixin Document($routeWrap, $focus, $loadingCursor: wait) {
+@mixin Document($routeWrap:null, $focus:$black, $loadingCursor: wait) {
     *,
     *::before,
     *::after {
