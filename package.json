@@ -1,6 +1,6 @@
 {
     "name": "quidphp-navigation",
-    "version": "5.31.7",
+    "version": "5.31.8",
     "description": "Javascript module for navigating a website without reloading",
     "main": "index.js",
     "type": "module",

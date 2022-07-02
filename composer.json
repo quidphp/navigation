@@ -1,7 +1,7 @@
 {
     "name": "quidphp/navigation",
     "type": "library",
-    "description": "Javascript module for a website navigation without reloading",
+    "description": "Javascript module for navigating a website without reloading",
     "keywords": ["quidphp","quid","php-framework","js-framework","nodejs"],
     "homepage": "https://quidphp.com",
     "license": "MIT",
