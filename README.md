@@ -39,12 +39,16 @@ All dependencies will be resolved by using the [NPM](https://www.npmjs.com) inst
 **QuidPHP/Navigation** code is commented and all methods are explained (in French).
 
 ## Overview
+**QuidPHP/Navigation** contains one entry file.
+- [index](index.js) - Entry file for the module
+
+### Source
 **QuidPHP/Navigation** contains 3 JavaScript files. Here is an overview:
 - [doc](src/doc.js) - Root component for a document node
 - [history](src/history.js) - Component managing site navigation with the HistoryAPI
 - [windowUnload](src/windowUnload.js) - Component to manage the unload notification with the window object
 
-## Styling
+### Styling
 **QuidPHP/Navigation** also contains 2 SCSS files. Here is an overview:
 - [document](css/document.scss) - Stylesheet for the document component, includes many style reset
 - [init](css/init.scss) - Stylesheet containing default variables and a set of helpers mixins
