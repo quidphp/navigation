@@ -1,7 +1,7 @@
 {
     "name": "quidphp-navigation",
-    "version": "5.31.6",
-    "description": "Javascript module for a website navigation without reloading",
+    "version": "5.31.7",
+    "description": "Javascript module for navigating a website without reloading",
     "main": "index.js",
     "type": "module",
     "scripts": {
@@ -28,8 +28,7 @@
     },
     "homepage": "https://github.com/quidphp/navigation#readme",
     "dependencies": {
-        "quidphp-browser": "5.31.*",
-        "quidphp-javascript": "5.31.*"
+        "quidphp-browser": "5.31.*"
     },
     "devDependencies": {
         "laravel-mix": "^6.0.43",
