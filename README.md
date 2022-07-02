@@ -37,6 +37,11 @@ All dependencies will be resolved by using the [NPM](https://www.npmjs.com) inst
 - [history](src/history.js) - Component managing site navigation with the HistoryAPI
 - [windowUnload](src/windowUnload.js) - Component to manage the unload notification with the window object
 
+## Styling
+**QuidPHP/Navigation** also contains 2 SCSS files. Here is an overview:
+- [document](css/document.scss) - Stylesheet for the document component, includes many style reset
+- [init](css/init.scss) - Stylesheet containing default variables and a set of helpers mixins
+
 ### Distributable
 **QuidPHP/Navigation** contains 2 scripts that can be used in the browser.
 - [navigation](dist/navigation.js) - Minified and transpiled script ready for production
