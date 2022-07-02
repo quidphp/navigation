@@ -12,14 +12,14 @@
 ## Documentation
 **QuidPHP/Navigation** documentation is available at [QuidPHP/Docs](https://github.com/quidphp/docs).
 
-## Installation NPM
+## NPM Installation
 **QuidPHP/Navigation** can be easily installed with [NPM](https://www.npmjs.com/package/quidphp-navigation).
 ``` bash
 $ npm install quidphp-navigation
 ```
 Once installed, the package will be available within your *node_modules* folder.
 
-## Installation Composer
+## Composer Installation
 **QuidPHP/Core** can also be installed with [Composer](https://getcomposer.org). It is available on [Packagist](https://packagist.org/packages/quidphp/navigation).
 ``` bash
 $ composer require quidphp/navigation
